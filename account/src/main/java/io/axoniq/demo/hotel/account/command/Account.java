@@ -13,20 +13,21 @@
  *  limitations under the License.
  */
 
-package io.axoniq.demo.hotel.booking.command;
+package io.axoniq.demo.hotel.account.command;
 
-import io.axoniq.demo.hotel.booking.command.api.AccountRegisteredEvent;
-import io.axoniq.demo.hotel.booking.command.api.PayCommand;
-import io.axoniq.demo.hotel.booking.command.api.RegisterAccountCommand;
+import static org.axonframework.modelling.command.AggregateLifecycle.apply;
+
+import java.util.UUID;
+
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
 
-import java.util.UUID;
-
-import static org.axonframework.modelling.command.AggregateLifecycle.apply;
+import io.axoniq.demo.hotel.account.command.web.PayCommand;
+import io.axoniq.demo.hotel.account.command.web.RegisterAccountCommand;
+import io.axoniq.demo.hotel.account.command.web.api.AccountRegisteredEvent;
 
 @Aggregate(snapshotTriggerDefinition = "accountSnapshotTriggerDefinition", cache = "cache")
 class Account {

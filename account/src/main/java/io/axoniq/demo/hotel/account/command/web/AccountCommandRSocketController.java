@@ -13,16 +13,16 @@
  *  limitations under the License.
  */
 
-package io.axoniq.demo.hotel.booking.command.web.rsocket;
+package io.axoniq.demo.hotel.account.command.web;
 
-import io.axoniq.demo.hotel.booking.command.api.RegisterAccountCommand;
-import io.axoniq.demo.hotel.booking.command.web.api.AccountRequestData;
+import java.util.UUID;
+
 import org.axonframework.extensions.reactor.commandhandling.gateway.ReactorCommandGateway;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Controller;
-import reactor.core.publisher.Mono;
 
-import java.util.UUID;
+import io.axoniq.demo.hotel.booking.command.web.api.AccountRequestData;
+import reactor.core.publisher.Mono;
 
 @Controller
 public class AccountCommandRSocketController {

@@ -13,18 +13,19 @@
  *  limitations under the License.
  */
 
-package io.axoniq.demo.hotel.booking.command;
-
-import io.axoniq.demo.hotel.booking.TestFactoryKt;
-import io.axoniq.demo.hotel.booking.command.api.AccountRegisteredEvent;
-import io.axoniq.demo.hotel.booking.command.api.PayCommand;
-import io.axoniq.demo.hotel.booking.command.api.PaymentRequestedEvent;
-import io.axoniq.demo.hotel.booking.command.api.RegisterAccountCommand;
-import org.axonframework.test.aggregate.AggregateTestFixture;
-import org.junit.jupiter.api.*;
+package io.axoniq.demo.hotel.account.command;
 
 import java.math.BigDecimal;
 import java.util.UUID;
+
+import org.axonframework.test.aggregate.AggregateTestFixture;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import io.axoniq.demo.hotel.account.command.web.PayCommand;
+import io.axoniq.demo.hotel.account.command.web.RegisterAccountCommand;
+import io.axoniq.demo.hotel.account.command.web.api.AccountRegisteredEvent;
+import io.axoniq.demo.hotel.account.command.web.api.PaymentRequestedEvent;
 
 class AccountTest {
 

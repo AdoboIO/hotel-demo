@@ -13,12 +13,18 @@
  *  limitations under the License.
  */
 
-package io.axoniq.demo.hotel.booking.command.api
+package io.axoniq.demo.hotel.account.command;
 
-import java.time.Instant
-import java.util.*
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
-enum class RoomStatus { PREPARED, CHECKED_IN, EMPTY }
-data class RoomBooking(val startDate: Instant, val endDate: Instant, val accountID: UUID, val bookingId: UUID) {
-    constructor(startDate: Instant, endDate: Instant, accountID: UUID) : this(startDate, endDate, accountID, UUID.randomUUID())
+
+@EnableScheduling
+@SpringBootApplication
+public class HotelAccountApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(HotelAccountApplication.class, args);
+    }
 }

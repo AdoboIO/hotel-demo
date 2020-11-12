@@ -13,26 +13,25 @@
  *  limitations under the License.
  */
 
-package io.axoniq.demo.hotel.booking.command.web.rest;
+package io.axoniq.demo.hotel.account.command.web;
 
-import io.axoniq.demo.hotel.booking.command.api.PayCommand;
-import io.axoniq.demo.hotel.booking.command.api.ProcessPaymentCommand;
-import io.axoniq.demo.hotel.booking.command.web.api.PayRequestData;
-import io.axoniq.demo.hotel.booking.query.api.FindPayment;
-import io.axoniq.demo.hotel.booking.query.api.PaymentResponseData;
+import java.time.Duration;
+import java.util.UUID;
+
 import org.axonframework.extensions.reactor.commandhandling.gateway.ReactorCommandGateway;
-import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.extensions.reactor.queryhandling.gateway.ReactorQueryGateway;
+import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import io.axoniq.demo.hotel.booking.command.web.api.PayRequestData;
+import io.axoniq.demo.hotel.booking.query.api.FindPayment;
+import io.axoniq.demo.hotel.booking.query.api.PaymentResponseData;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.time.Duration;
-import java.util.UUID;
 
 @RestController
 @CrossOrigin

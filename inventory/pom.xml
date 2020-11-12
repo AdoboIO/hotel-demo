@@ -35,6 +35,14 @@
         <start-class>io.axoniq.demo.hotel.inventory.HotelInventoryApplication</start-class>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>io.axoniq.dataprotection</groupId>
+            <artifactId>axon-data-protection-axon4</artifactId>
+            <version>4.1</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
