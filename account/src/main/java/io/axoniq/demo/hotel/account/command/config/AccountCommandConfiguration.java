@@ -9,8 +9,12 @@ import org.axonframework.eventsourcing.EventCountSnapshotTriggerDefinition;
 import org.axonframework.eventsourcing.Snapshotter;
 import org.axonframework.messaging.interceptors.LoggingInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
+@ConfigurationPropertiesScan
 public class AccountCommandConfiguration {
 
     /************************************************/
@@ -51,15 +55,15 @@ public class AccountCommandConfiguration {
 
     @Bean("accountSnapshotTriggerDefinition")
     EventCountSnapshotTriggerDefinition accountSnapshotTriggerDefinition(Snapshotter snapshotter,
-                                                                         AccountCommandProperties bookingCommandProperties) {
+                                                                         AccountCommandProperties accountCommandProperties) {
         return new EventCountSnapshotTriggerDefinition(snapshotter,
-                                                       bookingCommandProperties.getSnapshotTriggerThresholdAccount());
+                                                       accountCommandProperties.getSnapshotTriggerThresholdAccount());
     }
 
     @Bean("paymentSnapshotTriggerDefinition")
     EventCountSnapshotTriggerDefinition paymentSnapshotTriggerDefinition(Snapshotter snapshotter,
-                                                                         AccountCommandProperties bookingCommandProperties) {
+                                                                         AccountCommandProperties accountCommandProperties) {
         return new EventCountSnapshotTriggerDefinition(snapshotter,
-                                                       bookingCommandProperties.getSnapshotTriggerThresholdPayment());
+                                                       accountCommandProperties.getSnapshotTriggerThresholdPayment());
     }
 }
