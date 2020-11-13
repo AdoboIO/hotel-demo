@@ -20,9 +20,6 @@ import java.util.*
 enum class RoomStatus { READY, BOOKED, TAKEN, EMPTY }
 enum class PaymentStatus { PROCESSING, SUCCEEDED }
 
-data class FindPayment(val paymentId: UUID)
-class FindPayments
-data class FindPaymentsForAccount(val accountId: UUID)
 data class FindRoomAvailabilityForAccount(val roomId: Int, val accountId: UUID)
 data class FindRoomAvailability(val roomId: Int)
 class FindAllRoomCleaningSchedules()

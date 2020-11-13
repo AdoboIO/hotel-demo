@@ -15,17 +15,15 @@
 
 package io.axoniq.demo.hotel.account.command;
 
+import io.axoniq.demo.hotel.account.command.web.api.AccountRegisteredEvent;
+import io.axoniq.demo.hotel.account.command.web.api.PayCommand;
+import io.axoniq.demo.hotel.account.command.web.api.PaymentRequestedEvent;
+import io.axoniq.demo.hotel.account.command.web.api.RegisterAccountCommand;
+import org.axonframework.test.aggregate.AggregateTestFixture;
+import org.junit.jupiter.api.*;
+
 import java.math.BigDecimal;
 import java.util.UUID;
-
-import org.axonframework.test.aggregate.AggregateTestFixture;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import io.axoniq.demo.hotel.account.command.web.PayCommand;
-import io.axoniq.demo.hotel.account.command.web.RegisterAccountCommand;
-import io.axoniq.demo.hotel.account.command.web.api.AccountRegisteredEvent;
-import io.axoniq.demo.hotel.account.command.web.api.PaymentRequestedEvent;
 
 class AccountTest {
 

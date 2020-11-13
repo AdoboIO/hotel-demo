@@ -15,25 +15,25 @@
 
 package io.axoniq.demo.hotel.account.command;
 
-import static org.axonframework.modelling.command.AggregateLifecycle.apply;
-
-import java.util.UUID;
-
+import io.axoniq.demo.hotel.account.command.web.PaymentStatus;
+import io.axoniq.demo.hotel.account.command.web.api.PayCommand;
+import io.axoniq.demo.hotel.account.command.web.api.PaymentRequestedEvent;
+import io.axoniq.demo.hotel.account.command.web.api.PaymentSucceededEvent;
+import io.axoniq.demo.hotel.account.command.web.api.ProcessPaymentCommand;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.spring.stereotype.Aggregate;
 import org.springframework.util.Assert;
 
-import io.axoniq.demo.hotel.account.command.web.PayCommand;
-import io.axoniq.demo.hotel.account.command.web.ProcessPaymentCommand;
-import io.axoniq.demo.hotel.account.command.web.api.PaymentRequestedEvent;
-import io.axoniq.demo.hotel.account.command.web.api.PaymentStatus;
-import io.axoniq.demo.hotel.account.command.web.api.PaymentSucceededEvent;
+import java.util.UUID;
+
+import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 
 
 @Aggregate(snapshotTriggerDefinition = "paymentSnapshotTriggerDefinition", cache = "cache")
 class Payment {
+
     @AggregateIdentifier
     private UUID paymentId;
     private PaymentStatus paymentStatus;

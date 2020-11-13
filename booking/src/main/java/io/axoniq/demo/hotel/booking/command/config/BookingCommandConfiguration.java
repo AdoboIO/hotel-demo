@@ -37,6 +37,7 @@ public class BookingCommandConfiguration {
 
     /************************************************/
     /* Register interceptors on the bus */
+
     /************************************************/
 
     @Autowired
@@ -56,6 +57,7 @@ public class BookingCommandConfiguration {
 
     /***************************************/
     /*  Aggregate cache configuration   */
+
     /***************************************/
 
     @Bean("cache")
@@ -65,6 +67,7 @@ public class BookingCommandConfiguration {
 
     /***************************************/
     /*  Aggregate snapshot configuration   */
+
     /***************************************/
 
     @Bean
@@ -76,17 +79,9 @@ public class BookingCommandConfiguration {
     }
 
     @Bean("roomSnapshotTriggerDefinition")
-    EventCountSnapshotTriggerDefinition roomSnapshotTriggerDefinition(Snapshotter snapshotter, BookingCommandProperties bookingCommandProperties) {
-        return new EventCountSnapshotTriggerDefinition(snapshotter, bookingCommandProperties.getSnapshotTriggerThresholdRoom());
-    }
-
-    @Bean("accountSnapshotTriggerDefinition")
-    EventCountSnapshotTriggerDefinition accountSnapshotTriggerDefinition(Snapshotter snapshotter, BookingCommandProperties bookingCommandProperties) {
-        return new EventCountSnapshotTriggerDefinition(snapshotter, bookingCommandProperties.getSnapshotTriggerThresholdAccount());
-    }
-
-    @Bean("paymentSnapshotTriggerDefinition")
-    EventCountSnapshotTriggerDefinition paymentSnapshotTriggerDefinition(Snapshotter snapshotter, BookingCommandProperties bookingCommandProperties) {
-        return new EventCountSnapshotTriggerDefinition(snapshotter, bookingCommandProperties.getSnapshotTriggerThresholdPayment());
+    EventCountSnapshotTriggerDefinition roomSnapshotTriggerDefinition(Snapshotter snapshotter,
+                                                                      BookingCommandProperties bookingCommandProperties) {
+        return new EventCountSnapshotTriggerDefinition(snapshotter,
+                                                       bookingCommandProperties.getSnapshotTriggerThresholdRoom());
     }
 }

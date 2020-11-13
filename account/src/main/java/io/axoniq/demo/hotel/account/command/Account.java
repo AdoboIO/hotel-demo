@@ -15,22 +15,22 @@
 
 package io.axoniq.demo.hotel.account.command;
 
-import static org.axonframework.modelling.command.AggregateLifecycle.apply;
-
-import java.util.UUID;
-
+import io.axoniq.demo.hotel.account.command.web.api.AccountRegisteredEvent;
+import io.axoniq.demo.hotel.account.command.web.api.PayCommand;
+import io.axoniq.demo.hotel.account.command.web.api.RegisterAccountCommand;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
 
-import io.axoniq.demo.hotel.account.command.web.PayCommand;
-import io.axoniq.demo.hotel.account.command.web.RegisterAccountCommand;
-import io.axoniq.demo.hotel.account.command.web.api.AccountRegisteredEvent;
+import java.util.UUID;
+
+import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 
 @Aggregate(snapshotTriggerDefinition = "accountSnapshotTriggerDefinition", cache = "cache")
 class Account {
+
     @AggregateIdentifier
     private UUID accountId;
 
